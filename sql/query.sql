@@ -33,3 +33,12 @@ LEFT JOIN slot AS SLO ON ABS.idSlot = SLO.idSlot
 LEFT JOIN stazioniNoleggio AS STN ON SLO.idStazione = STN.idStazione
 WHERE ABS.dataUscita IS NULL
 AND STN.idStazione=:idSta
+
+# Recuperare ogni utente quanti noleggi ha effettuato
+SELECT
+  UT.idUtente,
+  UT.nomeUtente,
+  COUNT(*)
+FROM utenti AS UT
+LEFT JOIN noleggi AS NO ON NO.idUtente = UT.idUtente
+GROUP BY NO.idUtente;
