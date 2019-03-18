@@ -25,7 +25,7 @@ CREATE TABLE biciclette(
   modello varchar(30),
   dataAcquisto datetime DEFAULT current_timestamp
 );
-CREATE TABLE noleggia(
+CREATE TABLE noleggi(
   idUtente char(8),
   idBicicletta bit(64),
   dataOraPrelievo datetime,
